@@ -1,0 +1,10 @@
+version: '3.4'
+services:
+  mvndevenv:
+    restart: always
+    volumes:
+      - ./:/ws/JavaTestGeneration
+    tty: true
+    entrypoint: "bash"
+    build: ./
+    network_mode: "host"
