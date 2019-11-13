@@ -25,8 +25,30 @@ public class PropertyDao {
         return 0;
     }
 
-    public List<Person> selectAllProperties() {
-        return null;
+    private Property createPropertyWithRS(ResultSet rs) throws SQLException {
+        UUID id = UUID.fromString(rs.getString("id"));
+        int parkingSpaces = rs.getInt("parkingspaces");
+        Property.pets petsAllowed = Property.pets.valueOf(rs.getString("petsallowed"));
+        int bedrooms = rs.getInt("bedrooms");
+        int bathrooms = rs.getInt("bathrooms");
+        String address = rs.getString("address");
+        Property property = new Property(id, petsAllowed, parkingSpaces, bedrooms, bathrooms, address);
+        return property;
+    }
+
+    public List<Property> selectAllProperties() {
+        String sql = "SELECT * FROM property";
+        List<Property> properties = new ArrayList<>();
+        ResultSet rs = SqlConnection.executeQuery(sql);
+        try {
+            while(rs.next()){
+                Property property = createPropertyWithRS(rs);
+                properties.add(property);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return properties;
     }
 
     public Property selectPropertyById(UUID id) {
@@ -34,13 +56,7 @@ public class PropertyDao {
         ResultSet rs = SqlConnection.executeQuery(sql);
         try {
             if(rs.next()){
-                int parkingSpaces = rs.getInt("parkingspaces");
-                Property.pets petsAllowed = Property.pets.valueOf(rs.getString("petsallowed"));
-                int bedrooms = rs.getInt("bedrooms");
-                int bathrooms = rs.getInt("bathrooms");
-                String address = rs.getString("address");
-                Property property = new Property(id, petsAllowed, parkingSpaces, bedrooms, bathrooms, address);
-                return property;
+                return createPropertyWithRS(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,11 +65,18 @@ public class PropertyDao {
     }
 
     public int deletePersonById(UUID id) {
-        return 1;
+        String sql = "DELETE FROM property WHERE id='"+id+"';";
+        SqlConnection.executeQuery(sql, false, true);
+        return 0;
     }
 
-    public int updatePersonById(UUID id, Person update) {
-        return 0;
+    public Property updatePersonById(UUID id, Property update) {
+        if (selectPropertyById(id) == null){
+            return null;
+        }
+        deletePersonById(id);
+        insertProperty(id, update);
+        return selectPropertyById(id);
     }
 
 }
