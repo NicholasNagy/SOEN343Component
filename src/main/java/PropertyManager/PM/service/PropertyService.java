@@ -33,10 +33,10 @@ public class PropertyService {
     }
 
     public int deleteProperty(UUID id){
-        return propertyDao.deletePersonById(id);
+        return propertyDao.deletePropertyById(id);
     }
 
     public Property updateProperty(UUID id, Property property) {
-        return propertyDao.updatePersonById(id, property);
+        return propertyDao.updatePropertyById(id, property);
     }
 }

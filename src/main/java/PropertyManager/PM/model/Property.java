@@ -13,13 +13,13 @@ public class Property {
     //private final boolean laundry;
     private final int bedrooms;
     private final int bathrooms;
-    private final String address; //Address maybe should be another object?
+    private final Address address; //Address maybe should be another object?
 
     public Property(@JsonProperty("petsAllowed") pets petsAllowed,
                     @JsonProperty("parkingSpaces") int parkingSpaces,
                     @JsonProperty("bedrooms") int bedrooms,
                     @JsonProperty("bathrooms") int bathrooms,
-                    @JsonProperty("address") String address) {
+                    @JsonProperty("address") Address address) {
         this.id = UUID.randomUUID();
         this.petsAllowed = petsAllowed;
         this.parkingSpaces = parkingSpaces;
@@ -33,7 +33,7 @@ public class Property {
                     int parkingSpaces,
                     int bedrooms,
                     int bathrooms,
-                    String address) {
+                    Address address) {
         this.id = id;
         this.petsAllowed = petsAllowed;
         this.parkingSpaces = parkingSpaces;
@@ -59,7 +59,7 @@ public class Property {
         return bathrooms;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
