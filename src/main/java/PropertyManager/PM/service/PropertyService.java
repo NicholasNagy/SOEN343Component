@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class PropertyService {
     private final PropertyDao propertyDao;
@@ -21,4 +23,7 @@ public class PropertyService {
         return propertyDao.insertProperty(property.getId(), property);
     }
 
+    public Property getProperty(UUID id) {
+        return propertyDao.selectPropertyById(id);
+    }
 }

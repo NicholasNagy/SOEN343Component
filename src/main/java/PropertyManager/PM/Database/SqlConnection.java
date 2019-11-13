@@ -14,7 +14,7 @@ public class SqlConnection {
 
         try {
             Class.forName("org.postgresql.Driver");
-            con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/demodb","postgres", "password");
+            con = DriverManager.getConnection("jdbc:postgresql://nickandbobsql.csm1tdmwlecy.ca-central-1.rds.amazonaws.com/343component","postgres", "Postgres");
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
