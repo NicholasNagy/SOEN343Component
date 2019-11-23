@@ -6,7 +6,7 @@ import java.util.UUID;
 public class Property {
 
     private final UUID id;
-    public enum pets {SMALL, YES, NO};
+    public enum pets {SMALL, YES, NO}; //boolean
     //private final boolean heatingIncluded;
     private final pets petsAllowed; //Are pets allowed? Small is for small animals only
     private final int parkingSpaces;
@@ -14,12 +14,15 @@ public class Property {
     private final int bedrooms;
     private final int bathrooms;
     private final Address address; //Address maybe should be another object?
+    public enum propertyType {APPARTMENT, CONDO, HOUSE};
 
     public Property(@JsonProperty("petsAllowed") pets petsAllowed,
                     @JsonProperty("parkingSpaces") int parkingSpaces,
                     @JsonProperty("bedrooms") int bedrooms,
                     @JsonProperty("bathrooms") int bathrooms,
-                    @JsonProperty("address") Address address) {
+                    @JsonProperty("address") Address address,
+                    @JsonProperty("propertyType") propertyType propertyType,
+                    @JsonProperty("propertyId") UUID propertyID) {
         this.id = UUID.randomUUID();
         this.petsAllowed = petsAllowed;
         this.parkingSpaces = parkingSpaces;
