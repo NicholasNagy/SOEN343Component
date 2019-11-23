@@ -6,47 +6,60 @@ import java.util.UUID;
 public class Property {
 
     private final UUID id;
-    public enum pets {SMALL, YES, NO}; //boolean
+    public boolean petsAllowed ; //boolean
     //private final boolean heatingIncluded;
-    private final pets petsAllowed; //Are pets allowed? Small is for small animals only
     private final int parkingSpaces;
     //private final boolean laundry;
     private final int bedrooms;
     private final int bathrooms;
-    private final Address address; //Address maybe should be another object?
-    public enum propertyType {APPARTMENT, CONDO, HOUSE};
+    private final Address address;
 
-    public Property(@JsonProperty("petsAllowed") pets petsAllowed,
+    public enum propertyType {APPARTMENT, CONDO, HOUSE};
+    private propertyType type;
+    private UUID propertyID;
+    private float price;
+
+    public Property(@JsonProperty("petsAllowed") boolean petsAllowed,
                     @JsonProperty("parkingSpaces") int parkingSpaces,
                     @JsonProperty("bedrooms") int bedrooms,
                     @JsonProperty("bathrooms") int bathrooms,
                     @JsonProperty("address") Address address,
                     @JsonProperty("propertyType") propertyType propertyType,
-                    @JsonProperty("propertyId") UUID propertyID) {
+                    @JsonProperty("price") float price) {
         this.id = UUID.randomUUID();
         this.petsAllowed = petsAllowed;
         this.parkingSpaces = parkingSpaces;
-
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.address = address;
+
+        type = propertyType;
+        this.propertyID = UUID.randomUUID();
+        this.price = price;
+
     }
     public Property(UUID id,
-                    pets petsAllowed,
+                    boolean petsAllowed,
                     int parkingSpaces,
                     int bedrooms,
                     int bathrooms,
-                    Address address) {
+                    Address address,
+                    propertyType propertyType,
+                    UUID propertyID,
+                    float price) {
         this.id = id;
         this.petsAllowed = petsAllowed;
         this.parkingSpaces = parkingSpaces;
-
         this.bedrooms = bedrooms;
         this.bathrooms = bathrooms;
         this.address = address;
+
+        type = propertyType;
+        this.propertyID = propertyID;
+        this.price = price;
     }
 
-    public pets getPetsAllowed(){
+    public boolean getPetsAllowed(){
         return petsAllowed;
     }
 
@@ -68,6 +81,18 @@ public class Property {
 
     public UUID getId(){
         return id;
+    }
+
+    public propertyType getPropertyType(){
+        return this.type;
+    }
+
+    public UUID getPropertyID(){
+        return this.propertyID;
+    }
+
+    public float getPrice(){
+        return this.price;
     }
 
 }

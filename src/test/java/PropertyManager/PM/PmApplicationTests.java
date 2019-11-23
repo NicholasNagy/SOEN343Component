@@ -10,4 +10,9 @@ class PmApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void failtest(){
+		assert true;
+	}
+
 }

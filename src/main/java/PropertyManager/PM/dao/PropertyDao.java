@@ -3,7 +3,6 @@ package PropertyManager.PM.dao;
 
 import PropertyManager.PM.Database.SqlConnection;
 import PropertyManager.PM.model.Address;
-import PropertyManager.PM.model.Person;
 import PropertyManager.PM.model.Property;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository("property")
@@ -19,9 +17,11 @@ public class PropertyDao {
 
     public int insertProperty(UUID id, Property property) {
         String sql = "INSERT INTO property (id, parkingspaces, petsallowed, bedrooms, " +
-                "bathrooms, address) VALUES (\'" + id + "\', " + property.getParkingSpaces() +
-                ", \'" +  property.getPetsAllowed() + "\', " + property.getBedrooms() +
-                ", " + property.getBathrooms() + ", \'" + property.getAddress().getId() + "\');";
+                "bathrooms, address, propertyType, propertyID, price) VALUES (\'" +
+                id + "\', " + property.getParkingSpaces() + ", \'" +  property.getPetsAllowed() +
+                "\', " + property.getBedrooms() + ", " + property.getBathrooms() + ", \'" +
+                property.getAddress().getId() + "\', \'" + property.getPropertyType() + "\', \'"
+                + property.getPropertyID() + "\', " + property.getPrice() +");";
 
         SqlConnection.executeQuery(sql,false, true);
 
@@ -40,11 +40,16 @@ public class PropertyDao {
     private Property createPropertyWithRS(ResultSet rs) throws SQLException {
         UUID id = UUID.fromString(rs.getString("id"));
         int parkingSpaces = rs.getInt("parkingspaces");
-        Property.pets petsAllowed = Property.pets.valueOf(rs.getString("petsallowed"));
+        boolean petsAllowed = rs.getBoolean("petsallowed");
         int bedrooms = rs.getInt("bedrooms");
         int bathrooms = rs.getInt("bathrooms");
+        Property.propertyType propertyType = Property.propertyType.valueOf(rs.getString("propertyType"));
+        UUID propertyID = UUID.fromString(rs.getString("propertyID"));
+        float price = rs.getFloat("price");
+
         Address address = createAddressWithId(UUID.fromString(rs.getString("address")));
-        Property property = new Property(id, petsAllowed, parkingSpaces, bedrooms, bathrooms, address);
+        Property property = new Property(id, petsAllowed, parkingSpaces, bedrooms, bathrooms,
+                address, propertyType, propertyID, price);
         return property;
     }
 
