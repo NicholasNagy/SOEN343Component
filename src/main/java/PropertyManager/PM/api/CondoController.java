@@ -14,6 +14,7 @@ public class CondoController {
 
     @Autowired
     public CondoController(CondoService condoService) {
+
         this.condoService = condoService;
     }
 
