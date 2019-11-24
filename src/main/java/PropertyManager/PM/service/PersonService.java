@@ -12,9 +12,9 @@ import java.util.UUID;
 
 @Service
 public class PersonService {
-
+    //taking the interface and not the class that implements it
     private final PersonDao personDao;
-
+    //specifies with quantifier which implementation we want to use
     @Autowired
     public PersonService(@Qualifier("postgres") PersonDao personDao) {
         this.personDao = personDao;

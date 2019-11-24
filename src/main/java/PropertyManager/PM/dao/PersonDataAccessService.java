@@ -15,7 +15,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository("postgres")
-public class PersonDataAccessService implements PersonDao {
+public class  PersonDataAccessService implements PersonDao {
 
     @Autowired
     public PersonDataAccessService() {
