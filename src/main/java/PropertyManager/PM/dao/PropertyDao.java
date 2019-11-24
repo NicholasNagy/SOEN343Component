@@ -64,7 +64,7 @@ public class PropertyDao {
                 String province = rs.getString("province");
                 String country  = rs.getString("country");
                 String postalCode = rs.getString("postalcode");
-                return new Address(address, street, city, province, country, postalCode);
+                return new Address(id, address, street, city, province, country, postalCode);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -100,10 +100,14 @@ public class PropertyDao {
         return null;
     }
 
-    public int deletePropertyById(UUID id) {
+    public static int deletePropertyById(UUID id) {
         Property property = selectPropertyById(id);
+        if(property == null){
+            return 1;
+        }
         String sql = "DELETE FROM property WHERE id='"+id+"';";
-        String addressSql = "DELETE FROM address where id='"+property.getId()+"'";
+        String addressSql = "DELETE FROM address where id='"+property.getAddress().getId()+"'";
+        System.out.println(addressSql);
         SqlConnection.executeQuery(sql, false, true);
         SqlConnection.executeQuery(addressSql, false, true);
         return 0;

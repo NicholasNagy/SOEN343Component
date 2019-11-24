@@ -29,6 +29,21 @@ public class Address {
         this.postalCode = postalCode;
     }
 
+    public Address(UUID id, int address,
+                   String street,
+                   String city,
+                   String province,
+                   String country,
+                   String postalCode) {
+        this.id = id;
+        this.address = address;
+        this.street = street;
+        this.city = city;
+        this.province = province;
+        this.country = country;
+        this.postalCode = postalCode;
+    }
+
     public UUID getId(){
         return id;
     }
