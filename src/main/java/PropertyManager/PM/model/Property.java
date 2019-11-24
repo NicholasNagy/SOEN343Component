@@ -6,10 +6,8 @@ import java.util.UUID;
 public class Property {
 
     private final UUID id;
-    public boolean petsAllowed ; //boolean
-    //private final boolean heatingIncluded;
+    public boolean petsAllowed;
     private final int parkingSpaces;
-    //private final boolean laundry;
     private final int bedrooms;
     private final int bathrooms;
     private final Address address;
@@ -90,6 +88,8 @@ public class Property {
     public UUID getPropertyID(){
         return this.propertyID;
     }
+
+    public void setPropertyID(UUID propertyID) { this.propertyID = propertyID; }
 
     public float getPrice(){
         return this.price;

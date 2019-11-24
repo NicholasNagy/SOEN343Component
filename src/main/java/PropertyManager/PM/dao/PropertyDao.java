@@ -15,7 +15,7 @@ import java.util.UUID;
 @Repository("property")
 public class PropertyDao {
 
-    public int insertProperty(UUID id, Property property) {
+    public static int insertProperty(UUID id, Property property) {
         String sql = "INSERT INTO property (id, parkingspaces, petsallowed, bedrooms, " +
                 "bathrooms, address, propertyType, propertyID, price) VALUES (\'" +
                 id + "\', " + property.getParkingSpaces() + ", \'" +  property.getPetsAllowed() +
@@ -29,7 +29,7 @@ public class PropertyDao {
         return 0;
     }
 
-    private int insertAddress(Address address){
+    private static int insertAddress(Address address){
         String sql = "INSERT INTO address (id, address, street, city, province, country, postalcode) " +
                 "Values ('"+ address.getId() +"', " + address.getAddress() +", '" + address.getStreet()+ "', '" + address.getCity() +
                 "', '" + address.getProvince()+"', '" + address.getCountry() + "', '" + address.getPostalCode() +"');";
@@ -37,7 +37,7 @@ public class PropertyDao {
         return 0;
     }
 
-    private Property createPropertyWithRS(ResultSet rs) throws SQLException {
+    private static Property createPropertyWithRS(ResultSet rs) throws SQLException {
         UUID id = UUID.fromString(rs.getString("id"));
         int parkingSpaces = rs.getInt("parkingspaces");
         boolean petsAllowed = rs.getBoolean("petsallowed");
@@ -53,7 +53,7 @@ public class PropertyDao {
         return property;
     }
 
-    private Address createAddressWithId(UUID id) {
+    private static Address createAddressWithId(UUID id) {
         String sql = "SELECT * from address where id='"+id+"';";
         ResultSet rs = SqlConnection.executeQuery(sql, false);
         try {
@@ -87,7 +87,7 @@ public class PropertyDao {
         return properties;
     }
 
-    public Property selectPropertyById(UUID id) {
+    public static Property selectPropertyById(UUID id) {
         String sql = "SELECT * FROM property WHERE id='"+ id +"'";
         ResultSet rs = SqlConnection.executeQuery(sql);
         try {
