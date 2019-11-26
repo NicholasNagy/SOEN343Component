@@ -1,63 +1,11 @@
-//package PropertyManager.PM;
-//
-//import PropertyManager.PM.Database.SqlConnection;
-//import PropertyManager.PM.model.Property;
-//import com.fasterxml.jackson.databind.ObjectMapper;
-//import okhttp3.Response;
-//import org.junit.After;
-//import org.junit.Before;
-//import org.junit.jupiter.api.Test;
-//import org.junit.runner.RunWith;
-//import org.springframework.boot.test.context.SpringBootTest;
-//import org.springframework.boot.web.server.LocalServerPort;
-//import org.springframework.test.context.junit4.SpringRunner;
-//
-//import java.io.IOException;
-//
-//import static org.junit.jupiter.api.Assertions.assertEquals;
-//
-//@RunWith(SpringRunner.class)
-//@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-//public class PropertyTests {
-//
-//    @LocalServerPort
-//    private int port;
-//
-//    @Test
-//    void failAnotherTest() throws IOException {
-
-//    }
-//
-//    @Test
-//    void contextLoads(){
-//
-//    }
-//
-//    @Before
-//    public void prep(){
-
-//
-//    }
-//
-//    @After
-//    public void cleanup(){
-
-//    }
-//
-//
-//}
-
 package PropertyManager.PM;
 
 import PropertyManager.PM.Database.SqlConnection;
-import PropertyManager.PM.model.Address;
 import PropertyManager.PM.model.Property;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Response;
 
-//import org.junit.After;
 import org.junit.AfterClass;
-//import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.jupiter.api.Assertions;
 import org.junit.Test;
