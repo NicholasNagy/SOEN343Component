@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/v1/property")
 @RestController
 public class PropertyController {
@@ -23,6 +24,7 @@ public class PropertyController {
     public void addProperty(@RequestBody Property property) {
         propertyService.addProperty(property);
     }
+
 
     @GetMapping(path = "{id}")
     public Property getPropertyById(@PathVariable("id") UUID id){
