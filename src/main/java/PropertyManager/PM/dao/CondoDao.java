@@ -13,8 +13,8 @@ import java.util.UUID;
 public class CondoDao {
     public static int insertCondo(UUID id, Condo condo){
 
-        String sql = "INSERT INTO condo (id, laundryIncluded, heatingIncluded, electricityIncluded, internetIncluded," +
-                "furnished, airConditioning, smokersAccepted) VALUES (\'" + id + "\', " +
+        String sql = "INSERT INTO condo (id, elevatorIncluded, storageIncluded, outdoorAreasIncluded, gymIncluded," +
+                "conciergeIncluded, airConditioning, buildingInsurance) VALUES (\'" + id + "\', " +
                 condo.isElevatorIncluded() + ", " + condo.isStorageIncluded() + ", " +
                 condo.isOutdoorAreasIncluded() + ", " + condo.isGymIncluded() + ", " +
                 condo.isConciergeIncluded() + ", " + condo.isAirConditioning() + ", " + condo.isBuildingInsurance() + ");";
@@ -36,16 +36,16 @@ public class CondoDao {
             String sql = "SELECT * FROM condo WHERE id=\'" + property.getPropertyID() + "\';";
             ResultSet rs = SqlConnection.executeQuery(sql);
             if(rs.next()){
-                boolean laundryIncluded = rs.getBoolean("laundryIncluded");
-                boolean heatingIncluded = rs.getBoolean("heatingIncluded");
-                boolean electricityIncluded = rs.getBoolean("electricityIncluded");
-                boolean internetIncluded = rs.getBoolean("internetIncluded");
-                boolean furnished = rs.getBoolean("furnished");
+                boolean elevatorIncluded = rs.getBoolean("elevatorIncluded");
+                boolean storageIncluded = rs.getBoolean("storageIncluded");
+                boolean outdoorAreasIncluded = rs.getBoolean("outdoorAreasIncluded");
+                boolean gymIncluded = rs.getBoolean("gymIncluded");
+                boolean conciergeIncluded = rs.getBoolean("conciergeIncluded");
                 boolean airConditioning = rs.getBoolean("airConditioning");
-                boolean smokersAccepted = rs.getBoolean("smokersAccepted");
+                boolean buildingInsurance = rs.getBoolean("buildingInsurance");
 
-                return new Condo(property.getPropertyID(), property, laundryIncluded, heatingIncluded,
-                        electricityIncluded, internetIncluded, furnished, airConditioning, smokersAccepted);
+                return new Condo(property.getPropertyID(), property, elevatorIncluded, storageIncluded,
+                        outdoorAreasIncluded, gymIncluded, conciergeIncluded, airConditioning, buildingInsurance);
             }
 
         } catch (SQLException e){

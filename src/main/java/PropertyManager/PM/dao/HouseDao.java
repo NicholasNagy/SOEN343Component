@@ -15,11 +15,11 @@ public class HouseDao {
 
     public static int insertHouse(UUID id, House house){
 
-        String sql = "INSERT INTO house (id, laundryIncluded, heatingIncluded, electricityIncluded, internetIncluded," +
-                "furnished, airConditioning, smokersAccepted) VALUES (\'" + id + "\', " +
+        String sql = "INSERT INTO house (id, transitFriendly, privateBackyardIncluded, poolIncluded, basementIncluded," +
+                "pedestrianFriendly, yearBuilt) VALUES (\'" + id + "\', " +
                 house.isTransitFriendly() + ", " + house.isPrivateBackyardIncluded() + ", " +
                 house.isPoolIncluded() + ", " + house.isBasementIncluded() + ", " +
-                house.isPedestrianFriendly() + ", " + house.isYearBuilt() + ", " + house.isSmokersAccepted() + ");";
+                house.isPedestrianFriendly() + ", " + house.isYearBuilt() +  ");";
         SqlConnection.executeQuery(sql, false, true);
 
         Property property = house.getProperty();
@@ -38,16 +38,16 @@ public class HouseDao {
             String sql = "SELECT * FROM house WHERE id=\'" + property.getPropertyID() + "\';";
             ResultSet rs = SqlConnection.executeQuery(sql);
             if(rs.next()){
-                boolean laundryIncluded = rs.getBoolean("laundryIncluded");
-                boolean heatingIncluded = rs.getBoolean("heatingIncluded");
-                boolean electricityIncluded = rs.getBoolean("electricityIncluded");
-                boolean internetIncluded = rs.getBoolean("internetIncluded");
-                boolean furnished = rs.getBoolean("furnished");
-                boolean airConditioning = rs.getBoolean("airConditioning");
-                boolean smokersAccepted = rs.getBoolean("smokersAccepted");
+                boolean transitFriendly = rs.getBoolean("transitFriendly");
+                boolean privateBackyardIncluded = rs.getBoolean("privateBackyardIncluded");
+                boolean poolIncluded = rs.getBoolean("poolIncluded");
+                boolean basementIncluded = rs.getBoolean("basementIncluded");
+                boolean pedestrianFriendly = rs.getBoolean("pedestrianFriendly");
+                int yearBuilt = rs.getInt("yearBuilt");
 
-                return new House(property.getPropertyID(), property, laundryIncluded, heatingIncluded,
-                        electricityIncluded, internetIncluded, furnished, airConditioning, smokersAccepted);
+
+                return new House(property.getPropertyID(), property, transitFriendly, privateBackyardIncluded,
+                        poolIncluded, basementIncluded, pedestrianFriendly, yearBuilt);
             }
 
         } catch (SQLException e){
