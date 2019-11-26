@@ -8,80 +8,78 @@ public class House {
 
     private UUID id;
     private Property property;
-    private boolean laundryIncluded;
-    private boolean heatingIncluded;
-    private boolean electricityIncluded;
-    private boolean internetIncluded;
-    private boolean furnished;
-    private boolean airConditioning;
-    private boolean smokersAccepted;
+    private boolean transitFriendly;
+    private boolean privateBackyardIncluded;
+    private boolean poolIncluded;
+    private boolean basementIncluded;
+    private boolean pedestrianFriendly;
+    private int yearBuilt;
+
 
     public House(@JsonProperty("property") Property property,
-                 @JsonProperty("laundryIncluded") boolean laundryIncluded,
-                 @JsonProperty("heatingIncluded") boolean heatingIncluded,
-                 @JsonProperty("electricityIncluded") boolean electricityIncluded,
-                 @JsonProperty("internetIncluded") boolean internetIncluded,
-                 @JsonProperty("furnished") boolean furnished,
-                 @JsonProperty("airConditioning") boolean airConditioning,
-                 @JsonProperty("smokersAccepted") boolean smokersAccepted
+                 @JsonProperty("transitFriendly") boolean transitFriendly,
+                 @JsonProperty("privateBackyardIncluded") boolean privateBackyardIncluded,
+                 @JsonProperty("poolIncluded") boolean poolIncluded,
+                 @JsonProperty("basementIncluded") boolean basementIncluded,
+                 @JsonProperty("pedestrianFriendly") boolean pedestrianFriendly,
+                 @JsonProperty("yearBuilt") int yearBuilt
+
     ){
         this.id = UUID.randomUUID();
         this.property = property;
-        this.laundryIncluded = laundryIncluded;
-        this.heatingIncluded = heatingIncluded;
-        this.electricityIncluded = electricityIncluded;
-        this.internetIncluded = internetIncluded;
-        this.furnished = furnished;
-        this.airConditioning = airConditioning;
-        this.smokersAccepted = smokersAccepted;
+        this.transitFriendly = transitFriendly;
+        this.privateBackyardIncluded = privateBackyardIncluded;
+        this.poolIncluded = poolIncluded;
+        this.basementIncluded = basementIncluded;
+        this.pedestrianFriendly = pedestrianFriendly;
+        this.yearBuilt = yearBuilt;
+
     }
 
-    public House(UUID id, Property property, boolean laundryIncluded, boolean heatingIncluded,
-                 boolean electricityIncluded, boolean internetIncluded, boolean furnished,
-                 boolean airConditioning, boolean smokersAccepted)
+    public House(UUID id, Property property, boolean transitFriendly, boolean privateBackyardIncluded,
+                 boolean poolIncluded, boolean basementIncluded, boolean pedestrianFriendly,
+                 int yearBuilt)
     {
         this.id = id;
         this.property = property;
-        this.laundryIncluded = laundryIncluded;
-        this.heatingIncluded = heatingIncluded;
-        this.electricityIncluded = electricityIncluded;
-        this.internetIncluded = internetIncluded;
-        this.furnished = furnished;
-        this.airConditioning = airConditioning;
-        this.smokersAccepted = smokersAccepted;
+        this.transitFriendly = transitFriendly;
+        this.privateBackyardIncluded = privateBackyardIncluded;
+        this.poolIncluded = poolIncluded;
+        this.basementIncluded = basementIncluded;
+        this.pedestrianFriendly = pedestrianFriendly;
+        this.yearBuilt = yearBuilt;
+
     }
 
-    public boolean isElectricityIncluded() {
-        return electricityIncluded;
+    public boolean isPoolIncluded() {
+        return poolIncluded;
     }
 
-    public boolean isHeatingIncluded() {
-        return heatingIncluded;
+    public boolean isPrivateBackyardIncluded() {
+        return privateBackyardIncluded;
     }
 
-    public boolean isLaundryIncluded() {
-        return laundryIncluded;
+    public boolean isTransitFriendly() {
+        return transitFriendly;
     }
 
     public UUID getId() {
         return id;
     }
 
-    public boolean isInternetIncluded() {
-        return internetIncluded;
+    public boolean isBasementIncluded() {
+        return basementIncluded;
     }
 
-    public boolean isFurnished() {
-        return furnished;
+    public boolean isPedestrianFriendly() {
+        return pedestrianFriendly;
     }
 
-    public boolean isAirConditioning() {
-        return airConditioning;
+    public int isYearBuilt() {
+        return yearBuilt;
     }
 
-    public boolean isSmokersAccepted() {
-        return smokersAccepted;
-    }
+
 
     public Property getProperty() {
         return property;

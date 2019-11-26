@@ -7,79 +7,79 @@ import java.util.UUID;
 public class Condo {
     private UUID id;
     private Property property;
-    private boolean laundryIncluded;
-    private boolean heatingIncluded;
-    private boolean electricityIncluded;
-    private boolean internetIncluded;
-    private boolean furnished;
+    private boolean elevatorIncluded;
+    private boolean storageIncluded;
+    private boolean outdoorAreasIncluded;
+    private boolean gymIncluded;
+    private boolean conciergeIncluded;
     private boolean airConditioning;
-    private boolean smokersAccepted;
+    private boolean buildingInsurance;
 
     public Condo(@JsonProperty("property") Property property,
-                     @JsonProperty("laundryIncluded") boolean laundryIncluded,
-                     @JsonProperty("heatingIncluded") boolean heatingIncluded,
-                     @JsonProperty("electricityIncluded") boolean electricityIncluded,
-                     @JsonProperty("internetIncluded") boolean internetIncluded,
-                     @JsonProperty("furnished") boolean furnished,
+                     @JsonProperty("elevatorIncluded") boolean elevatorIncluded,
+                     @JsonProperty("storageIncluded") boolean storageIncluded,
+                     @JsonProperty("outdoorAreasIncluded") boolean outdoorAreasIncluded,
+                     @JsonProperty("gymIncluded") boolean gymIncluded,
+                     @JsonProperty("conciergeIncluded") boolean conciergeIncluded,
                      @JsonProperty("airConditioning") boolean airConditioning,
-                     @JsonProperty("smokersAccepted") boolean smokersAccepted
+                     @JsonProperty("buildingInsurance") boolean buildingInsurance
     ){
         this.id = UUID.randomUUID();
         this.property = property;
-        this.laundryIncluded = laundryIncluded;
-        this.heatingIncluded = heatingIncluded;
-        this.electricityIncluded = electricityIncluded;
-        this.internetIncluded = internetIncluded;
-        this.furnished = furnished;
+        this.elevatorIncluded = elevatorIncluded;
+        this.storageIncluded = storageIncluded;
+        this.outdoorAreasIncluded = outdoorAreasIncluded;
+        this.gymIncluded = gymIncluded;
+        this.conciergeIncluded = conciergeIncluded;
         this.airConditioning = airConditioning;
-        this.smokersAccepted = smokersAccepted;
+        this.buildingInsurance = buildingInsurance;
     }
 
-    public Condo(UUID id, Property property, boolean laundryIncluded, boolean heatingIncluded,
-                     boolean electricityIncluded, boolean internetIncluded, boolean furnished,
-                     boolean airConditioning, boolean smokersAccepted)
+    public Condo(UUID id, Property property, boolean elevatorIncluded, boolean storageIncluded,
+                 boolean outdoorAreasIncluded, boolean gymIncluded, boolean conciergeIncluded,
+                 boolean airConditioning, boolean buildingInsurance)
     {
         this.id = id;
         this.property = property;
-        this.laundryIncluded = laundryIncluded;
-        this.heatingIncluded = heatingIncluded;
-        this.electricityIncluded = electricityIncluded;
-        this.internetIncluded = internetIncluded;
-        this.furnished = furnished;
+        this.elevatorIncluded = elevatorIncluded;
+        this.storageIncluded = storageIncluded;
+        this.outdoorAreasIncluded = outdoorAreasIncluded;
+        this.gymIncluded = gymIncluded;
+        this.conciergeIncluded = conciergeIncluded;
         this.airConditioning = airConditioning;
-        this.smokersAccepted = smokersAccepted;
+        this.buildingInsurance = buildingInsurance;
     }
 
-    public boolean isElectricityIncluded() {
-        return electricityIncluded;
+    public boolean isOutdoorAreasIncluded() {
+        return outdoorAreasIncluded;
     }
 
-    public boolean isHeatingIncluded() {
-        return heatingIncluded;
+    public boolean isStorageIncluded() {
+        return storageIncluded;
     }
 
-    public boolean isLaundryIncluded() {
-        return laundryIncluded;
+    public boolean isElevatorIncluded() {
+        return elevatorIncluded;
     }
 
     public UUID getId() {
         return id;
     }
 
-    public boolean isInternetIncluded() {
-        return internetIncluded;
+    public boolean isGymIncluded() {
+        return gymIncluded;
     }
 
-    public boolean isFurnished() {
-        return furnished;
+    public boolean isConciergeIncluded() {
+        return conciergeIncluded;
     }
 
     public boolean isAirConditioning() {
         return airConditioning;
     }
 
-    public boolean isSmokersAccepted() {
-        return smokersAccepted;
+    public boolean isBuildingInsurance() {
+        return buildingInsurance;
     }
 
     public Property getProperty() {

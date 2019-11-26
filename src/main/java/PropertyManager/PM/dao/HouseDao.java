@@ -17,9 +17,9 @@ public class HouseDao {
 
         String sql = "INSERT INTO house (id, laundryIncluded, heatingIncluded, electricityIncluded, internetIncluded," +
                 "furnished, airConditioning, smokersAccepted) VALUES (\'" + id + "\', " +
-                house.isLaundryIncluded() + ", " + house.isHeatingIncluded() + ", " +
-                house.isElectricityIncluded() + ", " + house.isInternetIncluded() + ", " +
-                house.isFurnished() + ", " + house.isAirConditioning() + ", " + house.isSmokersAccepted() + ");";
+                house.isTransitFriendly() + ", " + house.isPrivateBackyardIncluded() + ", " +
+                house.isPoolIncluded() + ", " + house.isBasementIncluded() + ", " +
+                house.isPedestrianFriendly() + ", " + house.isYearBuilt() + ", " + house.isSmokersAccepted() + ");";
         SqlConnection.executeQuery(sql, false, true);
 
         Property property = house.getProperty();

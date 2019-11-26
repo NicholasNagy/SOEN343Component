@@ -15,9 +15,9 @@ public class CondoDao {
 
         String sql = "INSERT INTO condo (id, laundryIncluded, heatingIncluded, electricityIncluded, internetIncluded," +
                 "furnished, airConditioning, smokersAccepted) VALUES (\'" + id + "\', " +
-                condo.isLaundryIncluded() + ", " + condo.isHeatingIncluded() + ", " +
-                condo.isElectricityIncluded() + ", " + condo.isInternetIncluded() + ", " +
-                condo.isFurnished() + ", " + condo.isAirConditioning() + ", " + condo.isSmokersAccepted() + ");";
+                condo.isElevatorIncluded() + ", " + condo.isStorageIncluded() + ", " +
+                condo.isOutdoorAreasIncluded() + ", " + condo.isGymIncluded() + ", " +
+                condo.isConciergeIncluded() + ", " + condo.isAirConditioning() + ", " + condo.isBuildingInsurance() + ");";
         SqlConnection.executeQuery(sql, false, true);
 
         Property property = condo.getProperty();
