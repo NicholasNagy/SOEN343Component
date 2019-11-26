@@ -90,13 +90,11 @@ public class PropertyTests {
 
         for (int i = 0; i< properties.length; i++){
             if(UUID.fromString("58897f3d-6aec-49a7-96b0-d292df820eb0").equals(properties[i].getId())){
-                System.out.println(properties[i].getId());
                 property1 = properties[i];
             }
             if(UUID.fromString("58897f3d-6aec-49a7-96b0-d292df820eb2").equals(properties[i].getId())){
                 property2 = properties[i];
             }
-            System.out.println(properties[i].getId());
         }
         //Assert that they were actually found
         Assertions.assertNotNull(property1);
