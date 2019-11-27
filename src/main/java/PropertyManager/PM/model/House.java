@@ -75,7 +75,7 @@ public class House {
         return pedestrianFriendly;
     }
 
-    public int isYearBuilt() {
+    public int getYearBuilt() {
         return yearBuilt;
     }
 

@@ -19,7 +19,7 @@ public class HouseDao {
                 "pedestrianFriendly, yearBuilt) VALUES (\'" + id + "\', " +
                 house.isTransitFriendly() + ", " + house.isPrivateBackyardIncluded() + ", " +
                 house.isPoolIncluded() + ", " + house.isBasementIncluded() + ", " +
-                house.isPedestrianFriendly() + ", " + house.isYearBuilt() +  ");";
+                house.isPedestrianFriendly() + ", " + house.getYearBuilt() +  ");";
         SqlConnection.executeQuery(sql, false, true);
 
         Property property = house.getProperty();
