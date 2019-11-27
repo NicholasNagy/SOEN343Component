@@ -12,6 +12,8 @@ public class HttpClient {
     private String api = "/api/v1/";
     private String baseUrl;
     private final OkHttpClient httpClient = new OkHttpClient();
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
 
     public HttpClient(int port){
         this.port = port;
@@ -55,6 +57,28 @@ public class HttpClient {
                 .url(baseUrl + suffix)
                 .addHeader("User-Agent", "OkHttp Bot")
                 .post(formBody)
+                .build();
+
+        return attemptRequest(request);
+    }
+    public Response sendPost(String suffix, String json) throws IOException {
+
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .url(baseUrl + suffix)
+                .addHeader("User-Agent", "OkHttp Bot")
+                .post(body)
+                .build();
+
+        return attemptRequest(request);
+    }
+
+    public Response sendPut(String suffix, String json) throws IOException {
+        RequestBody body = RequestBody.create(JSON, json);
+        Request request = new Request.Builder()
+                .url(baseUrl + suffix)
+                .addHeader("User-Agent", "OkHttp Bot")
+                .put(body)
                 .build();
 
         return attemptRequest(request);
