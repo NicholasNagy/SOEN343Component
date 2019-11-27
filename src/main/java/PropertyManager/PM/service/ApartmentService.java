@@ -18,7 +18,7 @@ public class ApartmentService {
         this.apartmentDao = apartmentDao;
     }
 
-    public int addProperty(Apartment apartment) {
+    public UUID addProperty(Apartment apartment) {
         return apartmentDao.insertApartment(apartment.getId(), apartment);
     }
 
