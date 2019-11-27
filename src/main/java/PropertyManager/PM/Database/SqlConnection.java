@@ -75,6 +75,12 @@ public class SqlConnection {
         return rs;
     }
 
+    public static void executeSqlArray(String[] sql){
+        for (int i = 0; i < sql.length ; i++){
+            executeQuery(sql[i], false, true);
+        }
+    }
+
 
     public static Connection getConnection(){
 
