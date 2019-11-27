@@ -21,8 +21,8 @@ public class ApartmentController {
     }
 
     @PostMapping
-    public void addProperty(@RequestBody Apartment apartment) {
-        apartmentService.addProperty(apartment);
+    public UUID addProperty(@RequestBody Apartment apartment) {
+        return apartmentService.addProperty(apartment);
     }
 
     @GetMapping(path = "{id}")

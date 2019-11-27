@@ -12,7 +12,7 @@ import java.util.UUID;
 @Repository("apartment")
 public class ApartmentDao {
 
-    public static int insertApartment(UUID id, Apartment apartment){
+    public static UUID insertApartment(UUID id, Apartment apartment){
 
         String sql = "INSERT INTO appartment (id, laundryIncluded, heatingIncluded, electricityIncluded, internetIncluded," +
                 "furnished, airConditioning, smokersAccepted) VALUES (\'" + id + "\', " +
@@ -29,7 +29,7 @@ public class ApartmentDao {
         property.setPropertyID(apartment.getId());
 
         PropertyDao.insertProperty(apartment.getProperty().getId(), property);
-        return 0;
+        return apartment.getProperty().getId();
     }
 
     public static Apartment selectApartmentById(UUID id) {
@@ -82,7 +82,7 @@ public class ApartmentDao {
             return null;
         }
         deleteApartmentById(id);
-        insertApartment(update.getProperty().getPropertyID(), update);
+        insertApartment(update.getId(), update);
         apartment = selectApartmentById(id);
         System.out.println(apartment.getId());
         return apartment;
