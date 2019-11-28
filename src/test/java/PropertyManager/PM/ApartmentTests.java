@@ -6,9 +6,11 @@ import PropertyManager.PM.model.Address;
 import PropertyManager.PM.model.Apartment;
 import PropertyManager.PM.model.Property;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import okhttp3.FormBody;
 import okhttp3.Response;
-import org.junit.*;
+import org.junit.Assert;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -48,7 +50,7 @@ public class ApartmentTests {
         }
     }
 
-    @Before
+    @BeforeEach
     public void prep(){
 
         String sqlArray[] = new String[3];
@@ -92,6 +94,7 @@ public class ApartmentTests {
 
     @Test
     public void testPut() throws IOException, SQLException{
+        //Assert.fail();
         HttpClient httpClient = new HttpClient(port);
 
         Response response = httpClient.sendPut("apartment/58897f3d-6aec-49a7-96b0-d292df820eb0",
@@ -192,7 +195,7 @@ public class ApartmentTests {
         }
     }
 
-    @After
+    @AfterEach
     public void cleanup(){
 
         String[] sqlArray = new String[3];
@@ -205,7 +208,7 @@ public class ApartmentTests {
 
     }
 
-    @Before
+    @BeforeEach
     @Test
     public void testPost() throws IOException, SQLException {
         HttpClient httpClient = new HttpClient(port);
@@ -270,7 +273,7 @@ public class ApartmentTests {
 
     }
 
-    @After
+    @AfterEach
     public void cleanUpPost() throws SQLException {
         String sqlArray[] = new String[3];
         Combo combo = new Combo(postID);

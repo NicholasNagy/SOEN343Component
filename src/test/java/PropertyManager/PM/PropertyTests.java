@@ -5,10 +5,10 @@ import PropertyManager.PM.model.Property;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Response;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -65,7 +65,7 @@ public class PropertyTests {
         Assertions.assertEquals(2, property2.getPrice());
     }
 
-    @BeforeClass
+    @BeforeAll
     public static void prep(){
 
         String[] sqlArray = new String[4];
@@ -85,7 +85,7 @@ public class PropertyTests {
 
     }
 
-    @AfterClass
+    @AfterAll
     public static void cleanup(){
         String[] sqlArray = new String[4];
 
