@@ -28,7 +28,7 @@ public class PropertyTests {
     private int port;
 
     @Test
-    public void testProperties() throws IOException {
+    public void testGetProperties() throws IOException {
         HttpClient httpClient = new HttpClient(port);
         Response response = httpClient.sendGet("property");
         ObjectMapper objectMapper = new ObjectMapper();

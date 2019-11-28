@@ -71,7 +71,7 @@ public class ApartmentTests {
 
 
     @Test
-    public void testGet() throws IOException {
+    public void testGetApartment() throws IOException {
         HttpClient httpClient = new HttpClient(port);
         Response response = httpClient.sendGet("apartment/58897f3d-6aec-49a7-96b0-d292df820eb0");
         ObjectMapper objectMapper = new ObjectMapper();
@@ -93,7 +93,7 @@ public class ApartmentTests {
     }
 
     @Test
-    public void testPut() throws IOException, SQLException{
+    public void testUpdateApartment() throws IOException, SQLException{
         //Assert.fail();
         HttpClient httpClient = new HttpClient(port);
 
@@ -172,7 +172,7 @@ public class ApartmentTests {
     }
 
     @Test
-    public void testDelete() throws IOException, SQLException {
+    public void testDeleteApartment() throws IOException, SQLException {
         HttpClient httpClient = new HttpClient(port);
 
         httpClient.sendDelete("apartment/58897f3d-6aec-49a7-96b0-d292df820eb0");
@@ -210,7 +210,7 @@ public class ApartmentTests {
 
     @BeforeEach
     @Test
-    public void testPost() throws IOException, SQLException {
+    public void testInsertApartment() throws IOException, SQLException {
         HttpClient httpClient = new HttpClient(port);
 
         Response response = httpClient.sendPost("apartment", "{\n" +
