@@ -1,0 +1,38 @@
+[{
+  "property":{
+    "petsAllowed": false,
+    "parkingSpace": 0,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "address": {"address": 1234, "street": "Adrien", "city": "Terrebonne", "province": "Quebecr", "country": "Canada", 	"postalcode": "J6Y1K1"},
+    "propertyType": "APPARTMENT",
+    "price": 0
+  },
+  "laundryIncluded": false,
+  "heatingIncluded": false,
+  "electricityIncluded": false,
+  "internetIncluded": false,
+  "furnished": false,
+  "airConditioning": false,
+  "smokersAccepted": false
+},
+{
+  "property":{
+    "petsAllowed": false,
+    "parkingSpace": 0,
+    "bedrooms": 0,
+    "bathrooms": 0,
+    "address": {"id": "f5ee2171-8ac8-487e-b60f-46afd9dbd431","address": 1234, "street": "Adrien", "city": "Terrebonne", "province": "Quebecr", "country": "Canada", 	"postalcode": "J6Y1K1"},
+    "propertyType": "APPARTMENT",
+    "price": 0,
+    "id": "58897f3d-6aec-49a7-96b0-d292df820eb0"
+  },
+  "laundryIncluded": false,
+  "heatingIncluded": false,
+  "electricityIncluded": false,
+  "internetIncluded": false,
+  "furnished": false,
+  "airConditioning": false,
+  "smokersAccepted": false,
+  "id": "13d509c7-359b-4699-8522-0ed216429511"
+}]
