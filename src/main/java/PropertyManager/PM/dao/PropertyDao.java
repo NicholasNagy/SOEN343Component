@@ -107,7 +107,6 @@ public class PropertyDao {
         }
         String sql = "DELETE FROM property WHERE id='"+id+"';";
         String addressSql = "DELETE FROM address where id='"+property.getAddress().getId()+"'";
-        System.out.println(addressSql);
         SqlConnection.executeQuery(sql, false, true);
         SqlConnection.executeQuery(addressSql, false, true);
         return 0;

@@ -84,7 +84,6 @@ public class ApartmentDao {
         deleteApartmentById(id);
         insertApartment(update.getId(), update);
         apartment = selectApartmentById(id);
-        System.out.println(apartment.getId());
         return apartment;
     }
 
