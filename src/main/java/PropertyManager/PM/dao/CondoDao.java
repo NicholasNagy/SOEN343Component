@@ -77,7 +77,7 @@ public class CondoDao {
             return null;
         }
         deleteCondoById(id);
-        insertCondo(update.getProperty().getPropertyID(), update);
+        insertCondo(update.getProperty().getPropertyID(), update); //potential bug
         condo = selectCondoById(id);
         System.out.println(condo.getId());
         return condo;

@@ -79,7 +79,7 @@ public class HouseDao {
             return null;
         }
         deleteHouseById(id);
-        insertHouse(update.getProperty().getPropertyID(), update);
+        insertHouse(update.getProperty().getPropertyID(), update); // potential bug
         house = selectHouseById(id);
         System.out.println(house.getId());
         return house;
