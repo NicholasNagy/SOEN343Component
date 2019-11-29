@@ -97,7 +97,7 @@ public class CondoTests {
     }
 
 /*    @Test
-    public void testPutCondo() throws IOException, SQLException{
+    public void testUpdateCondo() throws IOException, SQLException{
         //Assert.fail();
         HttpClient httpClient = new HttpClient(port);
 
