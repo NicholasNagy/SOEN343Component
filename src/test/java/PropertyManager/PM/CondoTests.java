@@ -7,12 +7,12 @@ import PropertyManager.PM.model.Property;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Response;
 import org.junit.Assert;
-//import org.junit.jupiter.api.AfterEach;
-//import org.junit.jupiter.api.BeforeEach;
-//import org.junit.jupiter.api.Test;
-import org.junit.Test;
-import org.junit.Before;
-import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+//import org.junit.Test;
+//import org.junit.Before;
+//import org.junit.After;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -51,7 +51,7 @@ public class CondoTests {
         }
     }
 
-    @Before
+    @BeforeEach
     public void prep(){
 
         String sqlArray[] = new String[3];
@@ -96,7 +96,7 @@ public class CondoTests {
 
     }
 
-/*    @Test
+    @Test
     public void testUpdateCondo() throws IOException, SQLException{
         //Assert.fail();
         HttpClient httpClient = new HttpClient(port);
@@ -122,7 +122,7 @@ public class CondoTests {
                         "  \"buildingInsurance\": true,\n" +
                         "  \"id\": \"641b4b97-279a-4bde-b477-2920cfc2921f\"\n" +
                         "}");
-System.out.print("#########"+response.body().string());
+//System.out.print("#########11"+response.body().string());
         ObjectMapper objectMapper = new ObjectMapper();
         Condo condo = objectMapper.readValue(response.body().string(), Condo.class);
 
@@ -141,7 +141,7 @@ System.out.print("#########"+response.body().string());
         //Testing returned address attributes
         Address address = property.getAddress();
         Assert.assertEquals(9999, address.getAddress());
-        Assert.assertEquals("Not", address.getProvince());
+        Assert.assertEquals("No", address.getProvince());
         Assert.assertEquals("Lebanon", address.getCountry());
 
         String sqlCondo = "SELECT * FROM condo where id=\'13d509c7-359b-4699-8522-0ed216429511\';";
@@ -173,7 +173,7 @@ System.out.print("#########"+response.body().string());
         } else {
             Assert.fail("NO RESULT SET FOUND FOR PROPERTY MATCHING ID: 58897f3d-6aec-49a7-96b0-d292df820eb0!");
         }
-    }*/
+    }
 
     @Test
     public void testDelete() throws IOException, SQLException {
@@ -199,7 +199,7 @@ System.out.print("#########"+response.body().string());
         }
     }
 
-    @After
+    @AfterEach
     public void cleanup(){
          System.out.print("FROMM CLEANNNNNNN1");
         String[] sqlArray = new String[3];
@@ -212,10 +212,6 @@ System.out.print("#########"+response.body().string());
 
     }
 
-    @Before
-    public void doNothing(){
-
-    }
 
     @Test
     public void testInsertCondo() throws IOException, SQLException {
@@ -285,13 +281,15 @@ System.out.print("#########"+response.body().string());
 
     }
 
-/*    @After
+    @AfterEach
     public void cleanUpPost() throws SQLException {
         String sqlArray[] = new String[3];
-        CondoTests.Combo combo = new CondoTests.Combo(postID);
-        sqlArray[0] = "DELETE FROM property where id=\'"+ postID +"\'";
-        sqlArray[1] = "DELETE FROM condo where id=\'" + combo.condoID + "\';";
-        sqlArray[2] = "DELETE FROM address where id=\'" + combo.addressID + "\';";
-        SqlConnection.executeSqlArray(sqlArray);
-    }*/
+        if(postID!=null){
+            CondoTests.Combo combo = new CondoTests.Combo(postID);
+            sqlArray[0] = "DELETE FROM property where id=\'"+ postID +"\'";
+            sqlArray[1] = "DELETE FROM condo where id=\'" + combo.condoID + "\';";
+            sqlArray[2] = "DELETE FROM address where id=\'" + combo.addressID + "\';";
+            SqlConnection.executeSqlArray(sqlArray);
+        }
+    }
 }
