@@ -20,8 +20,8 @@ public class CondoController {
     }
 
     @PostMapping
-    public void addProperty(@RequestBody Condo condo) {
-        condoService.addProperty(condo);
+    public UUID addProperty(@RequestBody Condo condo) {
+        return condoService.addProperty(condo);
     }
 
     @GetMapping(path = "{id}")
