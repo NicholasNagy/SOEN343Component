@@ -8,6 +8,7 @@ import PropertyManager.PM.model.Property;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import okhttp3.Response;
 import org.junit.Assert;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -208,7 +209,6 @@ public class ApartmentTests {
 
     }
 
-    @BeforeEach
     @Test
     public void testInsertApartment() throws IOException, SQLException {
         HttpClient httpClient = new HttpClient(port);
@@ -234,6 +234,10 @@ public class ApartmentTests {
 
         postID = response.body().string().replaceAll("\"", "");
         Combo combo = new Combo(postID);
+        System.out.println("Post");
+        System.out.println(postID);
+        System.out.println(combo.addressID);
+        System.out.println(combo.appartmentID);
 
         //Assert two random parameters got inserted properly in property table
         String getPropertyRS = "SELECT id, bedrooms, bathrooms FROM property where id=\'"+ postID +"\'";
@@ -276,11 +280,17 @@ public class ApartmentTests {
     @AfterEach
     public void cleanUpPost() throws SQLException {
         String sqlArray[] = new String[3];
-        Combo combo = new Combo(postID);
-        sqlArray[0] = "DELETE FROM property where id=\'"+ postID +"\'";
-        sqlArray[1] = "DELETE FROM appartment where id=\'" + combo.appartmentID + "\';";
-        sqlArray[2] = "DELETE FROM address where id=\'" + combo.addressID + "\';";
-        SqlConnection.executeSqlArray(sqlArray);
+        if(postID != null){
+            Combo combo = new Combo(postID);
+            System.out.println("CleanupPost");
+            System.out.println(postID);
+            System.out.println(combo.appartmentID);
+            System.out.println(combo.addressID);
+            sqlArray[0] = "DELETE FROM property where id=\'"+ postID +"\'";
+            sqlArray[1] = "DELETE FROM appartment where id=\'" + combo.appartmentID + "\';";
+            sqlArray[2] = "DELETE FROM address where id=\'" + combo.addressID + "\';";
+            SqlConnection.executeSqlArray(sqlArray);
+        }
     }
 
 }
