@@ -18,7 +18,7 @@ public class HouseService {
         this.houseDao = houseDao;
     }
 
-    public int addProperty(House house) {
+    public UUID addProperty(House house) {
         return houseDao.insertHouse(house.getId(), house);
     }
 
