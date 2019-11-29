@@ -22,8 +22,8 @@ public class HouseController {
     }
 
     @PostMapping
-    public void addProperty(@RequestBody House house) {
-        houseService.addProperty(house);
+    public UUID addProperty(@RequestBody House house) {
+        return houseService.addProperty(house);
     }
 
     @GetMapping(path = "{id}")
