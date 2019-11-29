@@ -19,7 +19,7 @@ public class CondoService {
         this.condoDao = condoDao;
     }
 
-    public int addProperty(Condo condo) {
+    public UUID addProperty(Condo condo) {
         return condoDao.insertCondo(condo.getId(), condo);
     }
 

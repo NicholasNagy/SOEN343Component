@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Repository("condo")
 public class CondoDao {
-    public static int insertCondo(UUID id, Condo condo){
+    public static UUID insertCondo(UUID id, Condo condo){
 
         String sql = "INSERT INTO condo (id, elevatorIncluded, storageIncluded, outdoorAreasIncluded, gymIncluded," +
                 "conciergeIncluded, airConditioning, buildingInsurance) VALUES (\'" + id + "\', " +
@@ -24,7 +24,7 @@ public class CondoDao {
         property.setPropertyID(condo.getId());
 
         PropertyDao.insertProperty(condo.getProperty().getId(), property);
-        return 0;
+        return condo.getProperty().getId();
     }
 
     public static Condo selectCondoById(UUID id) {
@@ -79,7 +79,7 @@ public class CondoDao {
         deleteCondoById(id);
         insertCondo(update.getProperty().getPropertyID(), update); //potential bug
         condo = selectCondoById(id);
-        System.out.println(condo.getId());
+//        System.out.println(condo.getId());
         return condo;
     }
 

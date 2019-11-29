@@ -13,7 +13,7 @@ import java.util.UUID;
 @Repository("house")
 public class HouseDao {
 
-    public static int insertHouse(UUID id, House house){
+    public static UUID insertHouse(UUID id, House house){
 
         String sql = "INSERT INTO house (id, transitFriendly, privateBackyardIncluded, poolIncluded, basementIncluded," +
                 "pedestrianFriendly, yearBuilt) VALUES (\'" + id + "\', " +
@@ -26,7 +26,7 @@ public class HouseDao {
         property.setPropertyID(house.getId());
 
         PropertyDao.insertProperty(house.getProperty().getId(), property);
-        return 0;
+        return house.getProperty().getId();
     }
 
     public static House selectHouseById(UUID id) {
