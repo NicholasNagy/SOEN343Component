@@ -146,9 +146,9 @@ public class CondoTests {
         Assert.assertEquals("No", address.getProvince());
         Assert.assertEquals("Lebanon", address.getCountry());
 
-        String sqlCondo = "SELECT * FROM condo where id=\'13d509c7-359b-4699-8522-0ed216429511\';";
-        String sqlProperty = "SELECT * FROM property where id=\'58897f3d-6aec-49a7-96b0-d292df820eb0\';";
-        String sqlAddress = "SELECT * FROM address where id=\'f5ee2171-8ac8-487e-b60f-46afd9dbd431\';";
+        String sqlCondo = "SELECT * FROM condo where id=\'641b4b97-279a-4bde-b477-2920cfc2921f\';";
+        String sqlProperty = "SELECT * FROM property where id=\'8ab4f916-0228-4812-8b27-b321e7c04deb\';";
+        String sqlAddress = "SELECT * FROM address where id=\'7ab012b6-8845-4bd4-abfa-50cafa68b8e2\';";
 
         ResultSet condoRS = SqlConnection.executeQuery(sqlCondo);
         if(condoRS.next()){
@@ -156,7 +156,7 @@ public class CondoTests {
             Assert.assertFalse(condoRS.getBoolean("gymIncluded"));
             Assert.assertFalse(condoRS.getBoolean("storageIncluded"));
         } else{
-            Assert.fail("NO RESULT SET FOUND FOR condo MATCHING ID: 13d509c7-359b-4699-8522-0ed216429511!");
+            Assert.fail("NO RESULT SET FOUND FOR condo MATCHING ID: 641b4b97-279a-4bde-b477-2920cfc2921f!");
         }
 
         ResultSet propertyRS = SqlConnection.executeQuery(sqlProperty);
@@ -165,15 +165,15 @@ public class CondoTests {
             Assert.assertEquals(0, propertyRS.getInt("bathrooms"));
             Assert.assertEquals(0, propertyRS.getDouble("price"), 0.005);
         } else {
-            Assert.fail("NO RESULT SET FOUND FOR PROPERTY MATCHING ID: 58897f3d-6aec-49a7-96b0-d292df820eb0!");
+            Assert.fail("NO RESULT SET FOUND FOR PROPERTY MATCHING ID: 8ab4f916-0228-4812-8b27-b321e7c04deb!");
         }
         ResultSet addressRS = SqlConnection.executeQuery(sqlAddress);
         if(addressRS.next()){
             Assert.assertEquals(9999, addressRS.getInt("address"));
-            Assert.assertEquals("Not", addressRS.getString("province"));
+            Assert.assertEquals("No", addressRS.getString("province"));
             Assert.assertEquals("Lebanon", addressRS.getString("country"));
         } else {
-            Assert.fail("NO RESULT SET FOUND FOR PROPERTY MATCHING ID: 58897f3d-6aec-49a7-96b0-d292df820eb0!");
+            Assert.fail("NO RESULT SET FOUND FOR PROPERTY MATCHING ID: 8ab4f916-0228-4812-8b27-b321e7c04deb!");
         }
     }
 
