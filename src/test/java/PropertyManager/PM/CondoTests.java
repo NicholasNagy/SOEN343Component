@@ -96,7 +96,7 @@ public class CondoTests {
 
     }
 
-/*    @Test
+    @Test
     public void testUpdateCondo() throws IOException, SQLException{
         //Assert.fail();
         HttpClient httpClient = new HttpClient(port);
@@ -122,6 +122,9 @@ public class CondoTests {
                         "  \"buildingInsurance\": true,\n" +
                         "  \"id\": \"641b4b97-279a-4bde-b477-2920cfc2921f\"\n" +
                         "}");
+        if(response.body().string() == ""){
+            System.out.println("NULLLLLLLLL");
+        }
 System.out.print("#########"+response.body().string());
         ObjectMapper objectMapper = new ObjectMapper();
         Condo condo = objectMapper.readValue(response.body().string(), Condo.class);
@@ -173,7 +176,7 @@ System.out.print("#########"+response.body().string());
         } else {
             Assert.fail("NO RESULT SET FOUND FOR PROPERTY MATCHING ID: 58897f3d-6aec-49a7-96b0-d292df820eb0!");
         }
-    }*/
+    }
 
     @Test
     public void testDelete() throws IOException, SQLException {
@@ -213,10 +216,6 @@ System.out.print("#########"+response.body().string());
     }
 
     @Before
-    public void doNothing(){
-
-    }
-
     @Test
     public void testInsertCondo() throws IOException, SQLException {
         HttpClient httpClient = new HttpClient(port);
