@@ -35,4 +35,35 @@
   "airConditioning": false,
   "smokersAccepted": false,
   "id": "13d509c7-359b-4699-8522-0ed216429511"
-}]
+},
+
+  {
+    "property": {
+      "petsAllowed": false,
+      "parkingSpaces": 0,
+      "bedrooms": 0,
+      "bathrooms": 0,
+      "address": {
+        "address": 9999,
+        "street": "bishop",
+        "city": "Montreal",
+        "province": "Quebec",
+        "country": "Canada",
+        "postalcode": "H3G1Y1",
+        "id": "7ab012b6-8845-4bd4-abfa-50cafa68b8e2"
+      },
+      "propertyType": "CONDO",
+      "price": 0.0,
+      "id": "641b4b97-279a-4bde-b477-2920cfc2921f",
+      "propertyID": "8ab4f916-0228-4812-8b27-b321e7c04deb"
+    },
+    "elevatorIncluded": true,
+    "storageIncluded": true,
+    "outdoorAreasIncluded": true,
+    "gymIncluded": true,
+    "conciergeIncluded": true,
+    "airConditioning": true,
+    "buildingInsurance": true,
+    "id": "8ab4f916-0228-4812-8b27-b321e7c04deb"
+  }
+]
