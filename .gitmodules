@@ -1,0 +1,7 @@
+[submodule "src/src/main/UI"]
+	path = src/src/main/UI
+	url = https://github.com/KhaledBadran/SOEN343UI.git
+[submodule "src/main/UI"]
+	path = src/main/UI
+	url = https://github.com/KhaledBadran/SOEN343UI.git
+	branch = master

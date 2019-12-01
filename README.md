@@ -1,77 +1,78 @@
-<h1>SOEN 343</h1> :neckbeard: 
+<h1>SOEN 343 Property Management </h1>
 
-<h2>Directory Structure and Main File</h2>
-
-<h4>Development</h4>
-
-For development, write your code in src/main/java. For example, you can create a package
-named packageOne and put your files in that package.
-
-<h4>Main File</h4>
-
-For choosing which main method to execute, you must modify the pom.xml file. Simply look
-for all instances of \<mainClass>\</mainClass> and insert the location of the main file from
-the src/main/java directory.
-
-<h4>Testing</h4>
-
-For writing tests, you can write them similarly to when you're developing. Simply create 
-directories in src/test/java for packages and develop from there.
-
-
-<h2>Using Maven</h2>
-
-All the following commands need to be run from within the root directory of the project.
-
-<h4>Compiling</h4>
-
-    mvn compile
+<h2>Prerequisites</h2>
     
-<h4>Running Main File Declared in pom.xml</h4>
+    - git version 1.6.5 or higher
+    - Docker/Docker-Compose (Recommended)
+    or
+    - git version 1.6.5 or higher
+    - Maven
+    
+You will need the following installed on your computer:
 
-    mvn exec:java
+    - git version 1.6.5 or higher
+    - Docker and Docker-Compose
+    
+For installation of these software applications see the below links:
 
-<h4>Running Tests</h4>
+For git: 
+
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+For docker and docker-compose on Windows:
+
+    https://docs.docker.com/docker-for-windows/install/
+
+For docker and docker-compose on Mac:
+
+    https://docs.docker.com/docker-for-mac/install/
+    
+For docker on Ubuntu:
+
+    https://docs.docker.com/install/linux/docker-ce/ubuntu/
+    
+For docker-compose on Ubuntu:
+
+    https://docs.docker.com/compose/install/
+
+<h2>Testing</h2>
+
+In order to run the tests, you will have to have to run them with either docker/docker-compose or with
+maven.
+
+<h4>Step 1 - Clone Repository</h4>
+
+Open up a terminal or command prompt on your OS of choice (Windows/Linux/Mac), and 
+enter the following commands in a directory where you want to project to be stored:
+
+    git clone --recursive https://github.com/NicholasNagy/SOEN343Component.git
+    cd SOEN343Component
+    
+<h5>Note: It is very import to specify to git to clone the repository recursively 
+or else the submodules won't be cloned, and hence part of the project won't be cloned</h5>
+
+<h3>Running Tests with Docker and Docker-Compose</h3>
+
+<h4>Step 2 - Run Tests</h4>
+
+Now in your terminal type the following command:
+
+    docker-compose -f docker-compose.test.yml up
+    
+And the tests should run.
+
+<h3>Running Tests with Maven</h3>
+
+<h4>Step 2 - Run Tests</h4>
+
+Now in your terminal type the following command:
 
     mvn test
-
-<h4>Packaging into a single JAR file</h4>
-
-    mvn package
     
-<h4>Running JAR file</h4>
+And the tests should run.
 
-    java -jar ./target/java-project-1.0.jar
-    
 
-<h2>Deploying the development environment with Docker</h2>
+<h2>Deploying the System</h2>
 
-Step 1. Make sure you have both docker-compose and docker installed:
 
-    For Ubuntu users: https://docs.docker.com/install/linux/docker-ce/ubuntu/
-
-    for docker-compose: https://docs.docker.com/compose/install/
-    
-    For Windows users: https://docs.docker.com/docker-for-windows/install/
-
-    For Mac OS users: https://docs.docker.com/docker-for-mac/install/
-    
-    Note that docker-compose is installed by default on Windows and Mac os
-
-Step 2. Run the container
-
-Navigate to this folder within terminal/command prompt and type the following:
-
-    docker-compose up -d
-
-This will will build and start the container in a detached state from the current instance.
-
-Step 3. Access the container
-
-Within the terminal/command prompt type the following:
-
-    docker exec -it mvndevenv bash
-
-This will begin a bash terminal instance within the docker container, and you will have the necessary
-environment to compile and run Maven and Java
 

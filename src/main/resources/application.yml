@@ -4,3 +4,4 @@ app:
     username: postgres
     password: Postgres
     pool-size: 30
+#jdbc:postgresql://nickandbobsql.csm1tdmwlecy.ca-central-1.rds.amazonaws.com/343component
