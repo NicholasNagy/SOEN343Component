@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  componentbackend:
+    restart: always
+    image: ygansalohcin/343componentbackend:latest
+    ports:
+      - 8080:8080
+
+  componentui:
+    restart: always
+    image: ygansalohcin/343componentfrontend:latest
+    ports:
+      - 4200:80
+

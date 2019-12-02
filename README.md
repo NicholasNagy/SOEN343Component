@@ -113,11 +113,19 @@ or else the submodules won't be cloned, and hence part of the project won't be c
 In the terminal run the following command in your terminal or command prompt and
 enter the following command in the directory of the project:
 
-    docker-compose up
+    docker-compose -f docker-compose.deploy.yml up
     
 At this point docker will build and deploy the containers and the web server will be hosted
 on port 4200 (obligatory for our CORS setup). One the containers are running, SPRING will 
 display notify you in the terminal/command prompt.
+
+<h4>Step 3 - Build (Optional)</h4>
+
+If you desire to see the docker images build instead of pulling them from dockerhub, 
+feel free to run the following commands to build and run the appropriate containers:
+
+    docker-compose build
+    docker-compose up
     
 <h3>Deploying the System Manually (Not Recommended)</h3>
 
@@ -164,3 +172,7 @@ At this point, you should be able to run the project with the following command:
  
 At this point, the server should be running on port 4200 (obligatory for our CORS setup), and
 you should be able to view the webserver on port 4200.
+
+<h2>Using the System</h2>
+
+For a user manual on using the System, check out our [wiki](https://github.com/NicholasNagy/SOEN343Component/wiki)
