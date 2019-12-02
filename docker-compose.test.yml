@@ -7,7 +7,4 @@ services:
     entrypoint:
       - mvn
       - test
-    volumes:
-      - type: bind
-        source: ./
-        target: /ws/component/
+
