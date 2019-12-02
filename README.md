@@ -50,8 +50,8 @@ Open up a terminal or command prompt on your OS of choice (Windows/Linux/Mac), a
 enter the following commands in a directory where you want to project to be stored:
 
     git clone --recursive https://github.com/NicholasNagy/SOEN343Component.git
-    git submodule update --remote
     cd SOEN343Component
+    git submodule update --remote
     
 <h5>Note: It is very import to specify to git to clone the repository recursively 
 or else the submodules won't be cloned, and hence part of the project won't be cloned.</h5>
@@ -102,8 +102,8 @@ Open up a terminal or command prompt on your OS of choice (Windows/Linux/Mac), a
 enter the following commands in a directory where you want to project to be stored:
 
     git clone --recursive https://github.com/NicholasNagy/SOEN343Component.git
-    git submodule update --remote
     cd SOEN343Component
+    git submodule update --remote
     
 <h5>Note: It is very import to specify to git to clone the repository recursively 
 or else the submodules won't be cloned, and hence part of the project won't be cloned</h5>
@@ -133,8 +133,8 @@ Open up a terminal or command prompt on your OS of choice (Windows/Linux/Mac), a
 enter the following commands in a directory where you want to project to be stored:
 
     git clone --recursive https://github.com/NicholasNagy/SOEN343Component.git
-    git submodule update --remote
     cd SOEN343Component
+    git submodule update --remote
     
 <h5>Note: It is very import to specify to git to clone the repository recursively 
 or else the submodules won't be cloned, and hence part of the project won't be cloned</h5>
