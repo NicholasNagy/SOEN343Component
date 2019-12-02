@@ -1,0 +1,7 @@
+FROM maven:3.6-jdk-8-alpine
+
+WORKDIR /ws/component/
+
+COPY . .
+
+ENTRYPOINT ["mvn", "test"]

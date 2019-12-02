@@ -1,7 +1,9 @@
 version: '3.4'
 services:
   mvndevenv:
-    build: ./
+    build: 
+      context: ./
+      dockerfile: ./dockerfile.test
     entrypoint:
       - mvn
       - test
