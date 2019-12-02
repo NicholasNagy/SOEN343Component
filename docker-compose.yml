@@ -1,7 +1,14 @@
 version: '3.4'
 services:
-  mvndevenv:
+  componentbackend:
     restart: always
     build: ./
     ports:
       - 8080:8080
+
+  componentui:
+    restart: always
+    build: ./src/main/UI/
+    ports:
+      - 4200:80
+
